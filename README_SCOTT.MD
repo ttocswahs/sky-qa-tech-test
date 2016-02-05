@@ -1,1 +1,1 @@
-I am not familiar with php so you had to work out how the language works. I did my best to do the scientific calc bit but it took more time
+I am not familiar with php so had to work out how the language works. I did my best to do the scientific calc bit but it took more time
