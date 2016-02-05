@@ -19,7 +19,7 @@ class FeatureContext extends BehatContext {
     }
 
     /**
-     * @Given /^I enter "(\d+)" into the calculator$/
+     * @Given /^I enter "(-?\d*\.{0,1}\d+)" into the calculator$/
      */
     public function iEnterIntoTheCalculator($argument1) {
         $this->calculator->pressNumber($argument1);
@@ -38,6 +38,20 @@ class FeatureContext extends BehatContext {
     public function iHitDivide() {
         $this->calculator->pressDivide();
     }
+	
+    /**
+     * @When /^I hit "subtract"$/
+     */
+    public function iHitSubtract() {
+        $this->calculator->pressSubtract();
+    }
+	
+    /**
+     * @When /^I hit "add"$/
+     */
+    public function iHitAdd() {
+        $this->calculator->pressAdd();
+    }
 
     /**
      * @Given /^I hit "equals"$/
@@ -47,7 +61,7 @@ class FeatureContext extends BehatContext {
     }
 
     /**
-     * @Then /^I see a result of "(\d+)"$/
+     * @Then /^I see a result of "(-?\d*\.{0,1}\d+)"$/
      */
     public function iSeeAResultOf($argument1) {
         $result = $this->calculator->readScreen();
