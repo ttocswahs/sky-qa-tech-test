@@ -1,10 +1,21 @@
 <?php
 
-class Calculator implements iCalculator {
+class Calculator implements iCalculator, iScientificCalculator {
 
     protected $stack;
     protected $op;
     protected $result;
+
+    public function cubeRoot($a){
+      return pow($a, 1/3);
+    }
+
+    public function factorial($a){
+      return $this->getFactorial($a);
+    }
+    public function decToHex($a){
+      return dechex($a);
+    }
 
     public function add($a, $b) {
         return ($a + $b);
@@ -17,7 +28,7 @@ class Calculator implements iCalculator {
     public function multiply($a, $b) {
         return ($a * $b);
     }
-    
+
     public function divide($a, $b) {
         return ($a / $b);
     }
@@ -31,6 +42,30 @@ class Calculator implements iCalculator {
             $this->evaluateStack();
         }
         $this->op = "+";
+    }
+
+    public function pressCubeRoot(){
+        if(count($this->stack) > 0) {
+            $this->op = "^3";
+            $this->evaluateStack();
+        }
+
+    }
+
+    public function pressFactorial(){
+        if(count($this->stack) > 0) {
+            $this->op = "!";
+            $this->evaluateStack();
+        }
+
+    }
+
+    public function pressDecToHex(){
+        if(count($this->stack) > 0) {
+            $this->op = "dToH";
+            $this->evaluateStack();
+        }
+
     }
 
     public function pressSubtract() {
@@ -58,6 +93,14 @@ class Calculator implements iCalculator {
         return $this->evaluateStack();
     }
 
+    protected function getFactorial($number) { //basic implementation via recursion
+        if ($number < 2) {
+            return 1;
+        } else {
+            return ($number * $this->getFactorial($number-1));
+        }
+    }
+
     protected function evaluateStack() {
         switch($this->op) {
             case "+":
@@ -71,6 +114,15 @@ class Calculator implements iCalculator {
                 break;
             case "/":
                 $result = $this->divide(array_shift($this->stack), array_shift($this->stack));
+                break;
+            case "^3":
+                $result = $this->cubeRoot(array_shift($this->stack));
+                break;
+            case "!":
+                $result = $this->factorial(array_shift($this->stack));
+                break;
+            case "dToH":
+                $result = $this->decToHex(array_shift($this->stack));
                 break;
         }
         $this->clearStack();

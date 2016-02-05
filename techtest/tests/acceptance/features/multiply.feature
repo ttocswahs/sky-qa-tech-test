@@ -1,7 +1,6 @@
 @multiplication
 Feature: Multiplication
 
-@example
 Scenario: Multiply two numbers together
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -9,7 +8,6 @@ Scenario: Multiply two numbers together
     And I hit "equals"
     Then I see a result of "50"
 
-@example
 Scenario: Multiply three numbers together
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -19,7 +17,6 @@ Scenario: Multiply three numbers together
     And I hit "equals"
     Then I see a result of "100"
 
-@example
 Scenario: Multiply two numbers and add another
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -29,7 +26,6 @@ Scenario: Multiply two numbers and add another
     And I hit "equals"
     Then I see a result of "52"
 
-@example
 Scenario: Multiply two numbers and subtract another
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -39,7 +35,6 @@ Scenario: Multiply two numbers and subtract another
     And I hit "equals"
     Then I see a result of "48"
 	
-@example
 Scenario: Multiply two numbers together using 0
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -47,7 +42,6 @@ Scenario: Multiply two numbers together using 0
     And I hit "equals"
     Then I see a result of "0"
 
-@example
 Scenario: Multiply two numbers add 0
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -57,7 +51,6 @@ Scenario: Multiply two numbers add 0
     And I hit "equals"
     Then I see a result of "5"
 	
-@example
 Scenario: Multiply two numbers subtract 0
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -67,7 +60,6 @@ Scenario: Multiply two numbers subtract 0
     And I hit "equals"
     Then I see a result of "5"	
 	
-@example
 Scenario: Multiply two numbers then divide by 0
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -77,7 +69,6 @@ Scenario: Multiply two numbers then divide by 0
     And I hit "equals"
     Then I see a result of "0"
 	
-@example
 Scenario: Multiply two numbers together using negative number
     Given I enter "5" into the calculator
     And I hit "multiply"
@@ -85,16 +76,13 @@ Scenario: Multiply two numbers together using negative number
     And I hit "equals"
     Then I see a result of "-5"
 	
-@example @wip
 Scenario: Multiply no numbers and press equals
-#tbd
     Given I enter "0" into the calculator
 	And I hit "multiply"
 	And I enter "0" into the calculator
     And I hit "equals"
     Then I see a result of "0"
 	
-@example
 Scenario: Multiply two large numbers together
     Given I enter "500000000" into the calculator
     And I hit "multiply"
@@ -102,7 +90,6 @@ Scenario: Multiply two large numbers together
     And I hit "equals"
     Then I see a result of "12500000000"
 	
-@example
 Scenario: Multiply two decimal numbers together
     Given I enter "45.34" into the calculator
     And I hit "multiply"

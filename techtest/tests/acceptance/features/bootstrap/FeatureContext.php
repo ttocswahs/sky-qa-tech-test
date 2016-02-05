@@ -19,11 +19,46 @@ class FeatureContext extends BehatContext {
     }
 
     /**
+     * @Given /^I hit "cubeRoot"$/
+     */
+    public function iHitCubeRoot() {
+        $this->calculator->pressCubeRoot();
+    }
+
+    /**
+     * @Given /^I hit "factorial"$/
+     */
+    public function iHitFactorial() {
+        $this->calculator->pressFactorial();
+    }
+
+    /**
+     * @Given /^I hit "decToHex"$/
+     */
+    public function iHitDecToHex() {
+        $this->calculator->pressDecToHex();
+    }
+
+    /**
      * @Given /^I enter "(-?\d*\.{0,1}\d+)" into the calculator$/
      */
     public function iEnterIntoTheCalculator($argument1) {
         $this->calculator->pressNumber($argument1);
     }
+
+   /**
+    * @When /^I hit "add"$/
+    */
+    public function iHitAdd(){
+	$this->calculator->pressAdd();
+    }
+	
+    /**
+     * @When /^I hit "subtract"$/
+     */
+     public function iHitSubtract(){
+ 	$this->calculator->pressSubtract();
+     }
 
     /**
      * @When /^I hit "multiply"$/
@@ -37,20 +72,6 @@ class FeatureContext extends BehatContext {
      */
     public function iHitDivide() {
         $this->calculator->pressDivide();
-    }
-	
-    /**
-     * @When /^I hit "subtract"$/
-     */
-    public function iHitSubtract() {
-        $this->calculator->pressSubtract();
-    }
-	
-    /**
-     * @When /^I hit "add"$/
-     */
-    public function iHitAdd() {
-        $this->calculator->pressAdd();
     }
 
     /**
